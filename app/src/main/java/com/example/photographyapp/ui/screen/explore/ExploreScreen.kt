@@ -1,6 +1,5 @@
 package com.example.photographyapp.ui.screen.explore
 
-import android.provider.ContactsContract.Contacts.Photo
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -44,8 +43,10 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.photographyapp.R
 import com.example.photographyapp.model.UnsplashPhoto
-import com.example.photographyapp.ui.screen.DataItem
-import com.example.photographyapp.ui.screen.exploreItems
+import com.example.photographyapp.model.UnsplashUser
+import com.example.photographyapp.model.UserLinks
+import com.example.photographyapp.model.UserPhotoUrls
+import com.example.photographyapp.model.UserProfileImage
 
 @Composable
 fun ExploreScreen(viewModel: ExploreViewModel, onNavButtonClick: () -> Unit) {
@@ -182,10 +183,75 @@ fun ExploreItemPreview() {
     }
 }*/
 
-/*@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
 fun ExplorePreview() {
     MaterialTheme {
-        PhotoList(list = listOf(UnsplashPhoto())){}
+        val userPhotoUrl = UserPhotoUrls(
+            "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+            "https://hd.unsplash.com/photo-1416339306562-f3d12fefd36f",
+            "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=92f3e02f63678acc8416d044e189f515",
+            "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=263af33585f9d32af39d165b000845eb",
+        )
+        val links = UserLinks(
+            "https://api.unsplash.com/users/gilleslambert",
+            "http://unsplash.com/@gilleslambert",
+            "https://api.unsplash.com/users/gilleslambert/photos",
+            "https://api.unsplash.com/users/gilleslambert/likes"
+        )
+        val profileImage = UserProfileImage(
+            "https://images.unsplash.com/placeholder-avatars/extra-large.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32&s=0ad68f44c4725d5a3fda019bab9d3edc",
+            "https://images.unsplash.com/placeholder-avatars/extra-large.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64&s=356bd4b76a3d4eb97d63f45b818dd358",
+            "https://images.unsplash.com/placeholder-avatars/extra-large.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=ee8bbf5fb8d6e43aaaa238feae2fe90d"
+        )
+        val dummyUser = UnsplashUser(
+            id = "user123",
+            username = "12sude",
+            name = "Sude",
+            links = links,
+            profileImage = profileImage
+        )
+        val dummyPhoto = UnsplashPhoto(
+            id = "photo123",
+            width = 1920,
+            height = 1080,
+            description = "something",
+            urls = userPhotoUrl,
+            user = dummyUser
+        )
+        val userPhotoUrl2 = UserPhotoUrls(
+            "https://images.unsplash.com/face-springmorning.jpg",
+            "https://images.unsplash.com/face-springmorning.jpg?q=75&fm=jpg",
+            "https://images.unsplash.com/face-springmorning.jpg?q=75&fm=jpg&w=1080&fit=max",
+            "https://images.unsplash.com/face-springmorning.jpg?q=75&fm=jpg&w=400&fit=max",
+        )
+        val links2 = UserLinks(
+            "https://api.unsplash.com/users/lionsdenpro",
+            "https://unsplash.com/lionsdenpro",
+            "https://api.unsplash.com/users/lionsdenpro/photos",
+            "https://api.unsplash.com/users/lionsdenpro/likes",
+        )
+        val profileImage2 = UserProfileImage(
+            "https://images.unsplash.com/face-springmorning.jpg?q=80&fm=jpg&crop=faces&fit=crop&h=32&w=32",
+            "https://images.unsplash.com/face-springmorning.jpg?q=80&fm=jpg&crop=faces&fit=crop&h=64&w=64",
+            "https://images.unsplash.com/face-springmorning.jpg?q=80&fm=jpg&crop=faces&fit=crop&h=128&w=128"
+        )
+        val dummyUser2 = UnsplashUser(
+            id = "user1234",
+            username = "12bal",
+            name = "Bal",
+            links = links2,
+            profileImage = profileImage2
+        )
+
+        val dummyPhoto2 = UnsplashPhoto(
+            id = "photo1234",
+            width = 1920,
+            height = 1080,
+            description = "something2",
+            urls = userPhotoUrl2,
+            user = dummyUser2
+        )
+        PhotoList(list = listOf(dummyPhoto, dummyPhoto2)) {}
+    }
 }
-}*/

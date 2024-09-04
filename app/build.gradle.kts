@@ -46,7 +46,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.1"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
     packaging {
         resources {
@@ -81,27 +81,25 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
 
     dependencies {
         val nav_version = "2.7.7"
 
-        // Java language implementation
-        implementation("androidx.navigation:navigation-fragment:$nav_version")
-        implementation("androidx.navigation:navigation-ui:$nav_version")
+
 
         // Kotlin
-        implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-        implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+        implementation(libs.androidx.navigation.fragment.ktx)
+        implementation(libs.androidx.navigation.ui.ktx)
 
         // Feature module Support
-        implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+        implementation(libs.androidx.navigation.dynamic.features.fragment)
 
         // Testing Navigation
-        androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+        androidTestImplementation(libs.androidx.navigation.testing)
 
         // Jetpack Compose Integration
-        implementation("androidx.navigation:navigation-compose:$nav_version")
+        implementation(libs.androidx.navigation.compose)
     }
 }

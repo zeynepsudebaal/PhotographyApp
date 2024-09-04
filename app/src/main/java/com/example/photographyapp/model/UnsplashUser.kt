@@ -10,7 +10,6 @@ data class UnsplashUser(
     @SerializedName("profile_image")
     val profileImage: UserProfileImage
 )
-
 data class UserProfileImage(
     val small: String,
     val medium: String,
